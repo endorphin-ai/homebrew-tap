@@ -2,8 +2,7 @@ cask "lomi" do
   version "0.1.2"
   sha256 "e89dfdaaf83a88323f85b8a9b60ff69d855c104919746c67e3bda3d86b0dbc4e"
 
-  url "https://github.com/endorphin-ai/hasbrains-agent-kit/releases/download/lomi-v#{version}/Lomi-macos-universal.zip",
-      verified: "github.com/endorphin-ai/hasbrains-agent-kit/"
+  url "https://github.com/endorphin-ai/hasbrains-agent-kit/releases/download/lomi-v#{version}/Lomi-macos-universal.zip"
   name "Lomi"
   desc "Claude Code usage in the menu bar"
   homepage "https://hasbrains.com/"
