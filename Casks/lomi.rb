@@ -1,6 +1,6 @@
 cask "lomi" do
-  version "0.1.2"
-  sha256 "e89dfdaaf83a88323f85b8a9b60ff69d855c104919746c67e3bda3d86b0dbc4e"
+  version "0.1.3"
+  sha256 "b7c9052ff8aa07ff5867524eeb52ed8342bab17e87a6f1234ac9bc45f1c093ca"
 
   url "https://github.com/endorphin-ai/hasbrains-agent-kit/releases/download/lomi-v#{version}/Lomi-macos-universal.zip"
   name "Lomi"
@@ -13,7 +13,6 @@ cask "lomi" do
     strategy :page_match
   end
 
-  depends_on formula: "jq"
   depends_on macos: :monterey
 
   app "Lomi.app"
