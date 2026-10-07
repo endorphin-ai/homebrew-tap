@@ -15,7 +15,7 @@ cask "lomi" do
   end
 
   depends_on formula: "jq"
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "Lomi.app"
 
