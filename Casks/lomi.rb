@@ -1,6 +1,6 @@
 cask "lomi" do
-  version "0.1.3"
-  sha256 "b7c9052ff8aa07ff5867524eeb52ed8342bab17e87a6f1234ac9bc45f1c093ca"
+  version "0.1.4"
+  sha256 "2bce664a7ac174a4572bcc5c6c9a8c481019dfc64bd78d82a5a9cdfa9fb486fc"
 
   url "https://github.com/endorphin-ai/hasbrains-agent-kit/releases/download/lomi-v#{version}/Lomi-macos-universal.zip"
   name "Lomi"
