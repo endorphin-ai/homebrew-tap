@@ -22,19 +22,15 @@ cask "ulu" do
     strategy :page_match
   end
 
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
   depends_on formula: ["git", "gh", "node"]
   depends_on cask: ["claude-code", "ollama-app"]
 
   app "ULU.app"
 
-  postflight do
-    # Ollama keeps its server running from its app; start it once so ULU
-    # finds it on first start.
-    system_command "/usr/bin/open", args: ["-g", "-a", "Ollama"], must_succeed: false
-  end
 
   caveats <<~EOS
+    Start Ollama once (ULU's Tools has a button), so Ask can search by meaning.
     On first start ULU downloads the search model for Ask (about 270 MB)
     and asks you to sign in to Claude Code and GitHub if you have not.
   EOS
