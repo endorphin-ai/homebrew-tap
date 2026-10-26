@@ -8,8 +8,8 @@
 # with its progress in the window, and asks the person to sign in to Claude
 # and GitHub where needed.
 cask "ulu" do
-  version "0.3.3"
-  sha256 "268ca7065c4b2fc3c036bac990ddb37b0a597b397a8a926c115293f68e7509fa"
+  version "0.3.4"
+  sha256 "9d14dbe138559e4f1e9e172808d6c307885927dc2814041be22416980c5ddb49"
 
   url "https://github.com/endorphin-ai/ulu-releases/releases/download/ulu-v#{version}/ULU-macos-universal.zip"
   name "ULU"
