@@ -1,6 +1,6 @@
 cask "teach-me" do
-  version "0.2.0"
-  sha256 "11a70413f2fe71aba2ba59bf5f0abccf112d404d5685d64c31d1ee20ab5cd1b8"
+  version "0.2.1"
+  sha256 "9c6bbad7b7b076b3dbdf974f8deb3196234343395c3f859d5decf473525e5709"
 
   url "https://github.com/endorphin-ai/TEACH-ME/releases/download/teach-me-v#{version}/TeachMe-macos-universal.dmg"
   name "Teach Me"
