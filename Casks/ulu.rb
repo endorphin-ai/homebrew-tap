@@ -30,14 +30,22 @@ cask "ulu" do
   # stop the whole install. (A copy Homebrew itself installed is seen by
   # brew as the dependency met.)
   home = Dir.home
-  claude_there = ["#{home}/.local/bin/claude", "#{home}/.claude/local/claude",
-                  "/usr/local/bin/claude", "/opt/homebrew/bin/claude"].any? { |p| File.executable?(p) }
+  # The places ULU itself looks for Claude Code: its installer, Homebrew, npm
+  # (its global folder, nvm, volta, fnm, pnpm, yarn) and bun.
+  claude_places = ["#{home}/.local/bin", "#{home}/.claude/local", "/usr/local/bin", "/opt/homebrew/bin",
+                   "#{home}/.npm-global/bin", "#{home}/.npm-packages/bin", "#{home}/.volta/bin",
+                   "#{home}/.bun/bin", "#{home}/Library/pnpm", "#{home}/.yarn/bin", "#{home}/bin"] +
+                  Dir.glob("#{home}/.nvm/versions/node/*/bin") +
+                  Dir.glob("#{home}/.local/share/fnm/node-versions/*/installation/bin") +
+                  Dir.glob("#{home}/Library/Application Support/fnm/node-versions/*/installation/bin")
+  claude_there = claude_places.any? { |d| File.executable?("#{d}/claude") }
   ollama_there = File.directory?("/Applications/Ollama.app") || File.directory?("#{home}/Applications/Ollama.app") ||
                  File.executable?("/opt/homebrew/bin/ollama") || File.executable?("/usr/local/bin/ollama")
   depends_on cask: "claude-code" unless claude_there
   depends_on cask: "ollama-app" unless ollama_there
 
   app "ULU.app"
+  binary "#{appdir}/ULU.app/Contents/MacOS/ulu"
 
 
   caveats <<~EOS
