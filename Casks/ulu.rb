@@ -8,8 +8,8 @@
 # (nomic-embed-text, about 270 MB) through Ollama, with its progress in the
 # window, and asks the person to sign in to Claude and GitHub where needed.
 cask "ulu" do
-  version "0.6.3"
-  sha256 "859124474acaf4ac231db1cdaa6c1673aa3a9abe1c929ced1c5b0a33a4a706aa"
+  version "0.6.4"
+  sha256 "bec8109d3853c7efbdd7ec3ef49bc02ba881104e275a476f60ed91dce000ac0c"
 
   url "https://github.com/endorphin-ai/ulu-releases/releases/download/ulu-v#{version}/ULU-macos-universal.zip"
   name "ULU"
@@ -22,8 +22,6 @@ cask "ulu" do
     strategy :page_match
   end
 
-  depends_on macos: :monterey
-  depends_on formula: ["git", "gh", "node"]
   # Claude Code and Ollama too, unless this Mac has them already from their
   # own installers: brew would put a second Claude next to the first, and it
   # refuses to install Ollama.app over the one from ollama.com, which would
@@ -41,21 +39,24 @@ cask "ulu" do
   claude_there = claude_places.any? { |d| File.executable?("#{d}/claude") }
   ollama_there = File.directory?("/Applications/Ollama.app") || File.directory?("#{home}/Applications/Ollama.app") ||
                  File.executable?("/opt/homebrew/bin/ollama") || File.executable?("/usr/local/bin/ollama")
+
+  depends_on formula: ["git", "gh", "node"]
+  depends_on macos: :monterey
+
   depends_on cask: "claude-code" unless claude_there
   depends_on cask: "ollama-app" unless ollama_there
 
   app "ULU.app"
   binary "#{appdir}/ULU.app/Contents/MacOS/ulu"
 
+  zap trash: [
+    "~/Library/Application Support/squad-architect",
+    "~/Library/Preferences/com.endorphinailab.ulu.plist",
+  ]
 
   caveats <<~EOS
     Start Ollama once (ULU's Tools has a button), so Ask can search by meaning.
     On first start ULU downloads the search model for Ask (about 270 MB)
     and asks you to sign in to Claude Code and GitHub if you have not.
   EOS
-
-  zap trash: [
-    "~/Library/Application Support/squad-architect",
-    "~/Library/Preferences/com.endorphinailab.ulu.plist",
-  ]
 end
