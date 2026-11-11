@@ -8,8 +8,8 @@
 # (nomic-embed-text, about 270 MB) through Ollama, with its progress in the
 # window, and asks the person to sign in to Claude and GitHub where needed.
 cask "ulu" do
-  version "0.8.14"
-  sha256 "f745a583871b9df96706189aebe6d7e735f441ee63c2071b616c4940fe59f5b6"
+  version "0.8.15"
+  sha256 "904e07d6a20719d5d7a25b7a4b32edbacc5114fab2ca3e47db48b80f9f0abb42"
 
   url "https://github.com/endorphin-ai/ulu-releases/releases/download/ulu-v#{version}/ULU-macos-universal.zip"
   name "ULU"
