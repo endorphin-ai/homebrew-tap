@@ -4,12 +4,15 @@
 #
 # Installs what ULU's teams need along with the app: git, the GitHub CLI and
 # Node.js (formulas), and Claude Code and Ollama (casks) when the Mac does not
-# have them already. On first start ULU downloads the search model
-# (nomic-embed-text, about 270 MB) through Ollama, with its progress in the
-# window, and asks the person to sign in to Claude and GitHub where needed.
+# have them already. ULU Brain (inside the app) is every project's brain; since
+# 0.8.19 search by meaning is off, so ULU downloads no model on first start.
+# Only when the person turns on "Search by meaning" (Settings → Brain) does it
+# fetch nomic-embed-text (about 270 MB) through Ollama, with its progress in
+# the window. On first start it asks the person to sign in to Claude and
+# GitHub where needed.
 cask "ulu" do
-  version "0.8.18"
-  sha256 "c5c58904729a66d874c3b148584a5c398191a32bcedb2f3d3a376b578315c537"
+  version "0.8.19"
+  sha256 "9e77366e8e8a47c58bb6d1bc7a709047c0d2d64fa88d730db3121a5ba24c5427"
 
   url "https://github.com/endorphin-ai/ulu-releases/releases/download/ulu-v#{version}/ULU-macos-universal.zip"
   name "ULU"
@@ -55,8 +58,8 @@ cask "ulu" do
   ]
 
   caveats <<~EOS
-    Start Ollama once (ULU's Tools has a button), so Ask can search by meaning.
-    On first start ULU downloads the search model for Ask (about 270 MB)
-    and asks you to sign in to Claude Code and GitHub if you have not.
+    ULU Brain is every project's brain by default; Ollama is not needed.
+    On first start ULU asks you to sign in to Claude Code and GitHub if you
+    have not.
   EOS
 end
