@@ -11,8 +11,8 @@
 # the window. On first start it asks the person to sign in to Claude and
 # GitHub where needed.
 cask "ulu" do
-  version "0.8.22"
-  sha256 "f5e1d675caccc3b7130401f6cc78dc835979b43d949c2f09b219550a796474b0"
+  version "0.9.0"
+  sha256 "9e6d63c1fb9b0444f0f545ee67b2f5b5ddfeaf7ac1657a442f7529a5dd934357"
 
   url "https://github.com/endorphin-ai/ulu-releases/releases/download/ulu-v#{version}/ULU-macos-universal.zip"
   name "ULU"
